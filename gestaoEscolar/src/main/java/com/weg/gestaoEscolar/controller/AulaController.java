@@ -5,6 +5,7 @@ import com.weg.gestaoEscolar.DTO.aluno.AlunoResposta;
 import com.weg.gestaoEscolar.DTO.aula.AulaRequisicao;
 import com.weg.gestaoEscolar.DTO.aula.AulaResposta;
 import com.weg.gestaoEscolar.service.AulaService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
@@ -20,7 +21,7 @@ public class AulaController {
     }
 
     @PostMapping("/cadastrar")
-    public AulaResposta cadastrarAula (@RequestBody AulaRequisicao requisicao){
+    public AulaResposta cadastrarAula (@Valid @RequestBody AulaRequisicao requisicao){
         try {
             return service.cadastrarAula(requisicao);
         } catch (SQLException e){

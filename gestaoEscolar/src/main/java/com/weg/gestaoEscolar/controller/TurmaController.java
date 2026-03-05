@@ -4,6 +4,7 @@ import com.weg.gestaoEscolar.DTO.turma.TurmaRequisicao;
 import com.weg.gestaoEscolar.DTO.turma.TurmaResposta;
 import com.weg.gestaoEscolar.model.Turma;
 import com.weg.gestaoEscolar.service.TurmaService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
@@ -20,7 +21,7 @@ public class TurmaController {
     }
 
     @PostMapping("/cadastrar")
-    public Turma cadastrar(@RequestBody Turma turma) throws SQLException {
+    public Turma cadastrar(@Valid @RequestBody Turma turma) throws SQLException {
         return turmaService.cadastrar(turma);
     }
 

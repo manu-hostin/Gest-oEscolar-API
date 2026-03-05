@@ -3,6 +3,7 @@ package com.weg.gestaoEscolar.controller;
 import com.weg.gestaoEscolar.DTO.aluno.AlunoRequisicao;
 import com.weg.gestaoEscolar.DTO.aluno.AlunoResposta;
 import com.weg.gestaoEscolar.service.AlunoService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
@@ -19,7 +20,7 @@ public class AlunoController {
     }
 
     @PostMapping("/cadastrar")
-    public AlunoResposta cadastrarAluno (@RequestBody AlunoRequisicao alunoRequisicao){
+    public AlunoResposta cadastrarAluno (@Valid @RequestBody AlunoRequisicao alunoRequisicao){
 
         try {
              return service.cadastrarUsuario(alunoRequisicao);

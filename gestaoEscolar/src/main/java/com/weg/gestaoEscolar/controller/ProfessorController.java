@@ -3,6 +3,7 @@ package com.weg.gestaoEscolar.controller;
 import com.weg.gestaoEscolar.DTO.professor.ProfessorRequisicao;
 import com.weg.gestaoEscolar.DTO.professor.ProfessorResposta;
 import com.weg.gestaoEscolar.service.ProfessorService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
@@ -18,7 +19,7 @@ public class ProfessorController {
     }
 
     @PostMapping ("/cadastrar")
-    public ProfessorResposta cadastrarProfessor (@RequestBody ProfessorRequisicao requisicao){
+    public ProfessorResposta cadastrarProfessor (@Valid @RequestBody ProfessorRequisicao requisicao){
         try {
             return service.cadastrarProfessor(requisicao);
         } catch (SQLException e){

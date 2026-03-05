@@ -3,6 +3,7 @@ package com.weg.gestaoEscolar.controller;
 import com.weg.gestaoEscolar.DTO.nota.NotaRequisicao;
 import com.weg.gestaoEscolar.DTO.nota.NotaResposta;
 import com.weg.gestaoEscolar.service.NotaService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
@@ -16,7 +17,7 @@ public class NotaController {
     public NotaController(NotaService service) { this.service = service; }
 
     @PostMapping("/cadastrar")
-    public NotaResposta cadastrar(@RequestBody NotaRequisicao req) {
+    public NotaResposta cadastrar(@Valid @RequestBody NotaRequisicao req) {
         try { return service.cadastrarNota(req); }
         catch (SQLException e) { throw new RuntimeException(e.getMessage()); }
     }

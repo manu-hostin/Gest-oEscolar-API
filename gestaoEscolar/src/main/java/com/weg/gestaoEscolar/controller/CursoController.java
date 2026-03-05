@@ -6,6 +6,7 @@ import com.weg.gestaoEscolar.DTO.curso.CursoRequisicao;
 import com.weg.gestaoEscolar.DTO.curso.CursoResposta;
 import com.weg.gestaoEscolar.service.AlunoService;
 import com.weg.gestaoEscolar.service.CursoService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
@@ -21,7 +22,7 @@ public class CursoController {
     }
 
     @PostMapping("/cadastrar")
-    public CursoResposta cadastrarCurso (@RequestBody CursoRequisicao cursoRequisicao){
+    public CursoResposta cadastrarCurso (@Valid @RequestBody CursoRequisicao cursoRequisicao){
         try {
             return service.cadastrarCurso(cursoRequisicao);
         } catch (SQLException e){
